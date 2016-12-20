@@ -2,7 +2,7 @@
   "name": "grades-app",
   "version": "1.0.0",
   "description": "A node application for tracking grades across semesters built for Georgia Tech students",
-  "main": "index.js",
+  "main": "GradesDisplay.jsx",
   "scripts": {
     "start": "node server.js"
   },

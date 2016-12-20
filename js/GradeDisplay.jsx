@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class GradeDisplay extends React.Component {
+class GradesDisplay extends React.Component {
 	render() {
 		return (
 			<h1>This rendered</h1>
@@ -10,6 +10,6 @@ class GradeDisplay extends React.Component {
 }
 
 ReactDOM.render(
-	<GradeDisplay />, 
+	<GradesDisplay />,
 	document.getElementById('content')
 );

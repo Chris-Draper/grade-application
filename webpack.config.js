@@ -1,6 +1,6 @@
 module.exports = {
   entry: [
-    './js/TeamDisplay.jsx'
+    './js/GradeDisplay.jsx'
   ],
   output: {
     path: __dirname,

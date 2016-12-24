@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'underscore';
 import Tabs from './Tabs.jsx';
 import Pane from './Pane.jsx';
+import CourseDisplay from './CourseDisplay';
 
 class GradesDisplay extends React.Component {
     
@@ -14,16 +16,30 @@ class GradesDisplay extends React.Component {
                 "CS 2340"
             ]
         }
+        this.editCourseName = this.editCourseName.bind(this);
+    }
+
+    editCourseName(oldCourseName, newCourseName) {
+        const {
+            courseNames
+        } = this.state;
+        var courseIndex = _.indexOf(courseNames, oldCourseName);
+        courseNames[courseIndex] = newCourseName;
+        this.setState({courseNames: courseNames});
     }
     
     render() {
+        const {
+            courseNames
+        } = this.state;
         var paneArray = [];
-        for (var i = 0; i < this.state.courseNames.length; i++) {
+        for (var i = 0; i < courseNames.length; i++) {
             paneArray.push(
                 <Pane
                     key={i}
-                    label={this.state.courseNames[i]}>
+                    label={courseNames[i]}>
                     Displaying Pane {i}
+                    <CourseDisplay courseName={courseNames[i]} editCourseName={this.editCourseName}/>
                 </Pane>
              )
         }

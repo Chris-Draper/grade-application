@@ -7,21 +7,30 @@ class GradesDisplay extends React.Component {
     
     constructor() {
         super();
+        this.state = {
+            courseNames : [
+                "CS 1331",
+                "MATH 1554",
+                "CS 2340"
+            ]
+        }
     }
     
     render() {
+        var paneArray = [];
+        for (var i = 0; i < this.state.courseNames.length; i++) {
+            paneArray.push(
+                <Pane
+                    key={i}
+                    label={this.state.courseNames[i]}>
+                    Displaying Pane {i}
+                </Pane>
+             )
+        }
         return (
             <div>
                 <Tabs selected={0}>
-                    <Pane label="Tab 1">
-                        <div>This is my tab 1 contents!</div>
-                    </Pane>
-                    <Pane label="Tab 2">
-                        <div>This is my tab 2 contents!</div>
-                    </Pane>
-                    <Pane label="Tab 3">
-                        <div>This is my tab 3 contents!</div>
-                    </Pane>
+                    {paneArray}
                 </Tabs>
             </div>
         );
